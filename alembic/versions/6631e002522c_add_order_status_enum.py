@@ -1,4 +1,3 @@
-from sqlalchemy.dialects import postgresql
 """add order status enum
 
 Revision ID: 6631e002522c

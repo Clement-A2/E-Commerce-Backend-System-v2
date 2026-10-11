@@ -23,6 +23,9 @@ class PaymentService:
 
         order = order_service.get_order(db, data.order_id)
 
+        if order.status ==  OrderStatus.COMPLETED:
+            raise InvalidPaymentError("Cannot Make Payment For A Completed Order....!!!")
+
         if data.amount < order.total_amount:
             raise InsufficientPaymentAmountError("Payment Amount Should Not Be Less Than The Total Order Amount...!!")
 
